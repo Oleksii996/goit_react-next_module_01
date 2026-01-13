@@ -82,5 +82,39 @@
 //#region Опціональні (?) та readonly поля
 
 // TypeScript дозволяє позначати деякі поля як опціональні, тобто такі, які можуть бути відсутні в об'єкті. Для цього після імені властивості додається ? при описі типу.
+{
+  interface User {
+    name: string;
+    age?: number; // Це поле може бути відсутнім
+  }
+
+  const poly: User = {
+    name: "Poly",
+  };
+
+  console.log(poly.age); // ✅ Не буде помилки, оскільки age може бути відсутнім
+
+  const jacob: User = {
+    name: "Jacob",
+    age: 36,
+  };
+
+  console.log(jacob.age);
+}
+
+//Також можна позначити поле як readonly, щоб його не можна було змінювати після ініціалізації.
+{
+  interface User {
+    readonly id: number; // Це поле тільки для читання
+    name: string;
+  }
+
+  const user: User = {
+    id: 123,
+    name: "Alice",
+  };
+
+  user.id = 456; // ❌ Помилка: Cannot assign to 'id' because it is a read-only property.
+}
 
 //#endregion
