@@ -93,4 +93,10 @@ console.log(numbers.includes(3));
 const doubledNumbers = numbers.map((num) => num * 2);
 console.log(doubledNumbers); // [2, 4, 6, 8, 10]
 
+//Якщо ми спробуємо викликати метод, який не існує у масивів, TypeScript також видасть помилку:
+const numbers: number[] = [1, 2, 3, 4, 5];
+
+numbers.nonExistentMethod();
+// ❌ Error: Property 'nonExistentMethod' does not exist on type 'number[]'.
+
 //#endregion
